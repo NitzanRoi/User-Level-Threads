@@ -2,9 +2,6 @@
 #include <csignal>
 #include "myThread.h"
 
-//code from demo_jmp.c
-//sigjmp_buf env[MAX_THREAD_NUM]; // all current threads os data (without terminated)
-
 #ifdef __x86_64__
 /* code for 64 bit Intel arch */
 
@@ -44,8 +41,6 @@ address_t translate_address(address_t addr)
 }
 
 #endif
-//////////
-
 
 myThread::myThread(int id, void (*f)(void)) : tid(id), state(READY), quantum(0), syncedTid(-1), func(f)
 {
